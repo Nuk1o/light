@@ -5,6 +5,7 @@ public class MouseControll : MonoBehaviour
     [SerializeField] private float _horizontalSpeed;
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private Transform _playerBody;
+    
     private float _xRotation = 0.0f;
     private float _yRotation = 0.0f;
     private Camera _camera;
@@ -16,7 +17,12 @@ public class MouseControll : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void FixedUpdate()
+    {
+        MouseLook();   
+    }
+
+    private void MouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * _horizontalSpeed;
         float mouseY = Input.GetAxis("Mouse Y") * _verticalSpeed;
