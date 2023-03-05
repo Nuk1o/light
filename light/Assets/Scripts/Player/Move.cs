@@ -6,15 +6,18 @@ public class Move : MonoBehaviour
     [SerializeField] private float _Gravity;
     private CharacterController _characterController;
     private float _velocity = 0;
+    private float _heightCharacter;
     
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        _heightCharacter = _characterController.height;
     }
 
     private void FixedUpdate()
     {
         Movment();
+        Squat();
     }
 
     private void Movment()
@@ -23,7 +26,7 @@ public class Move : MonoBehaviour
         float _moveVertical = Input.GetAxis("Vertical");
 
         Vector3 _move = transform.right * _moveHorizontal + transform.forward * _moveVertical;
-        _characterController.Move(_move * _speed * Time.deltaTime);
+        _characterController.Move(_move * (_speed * Time.deltaTime));
         
         if(_characterController.isGrounded)
         {
@@ -33,6 +36,18 @@ public class Move : MonoBehaviour
         {
             _velocity -= _Gravity * Time.deltaTime;
             _characterController.Move(new Vector3(0, _velocity, 0));
+        }
+    }
+
+    private void Squat()
+    {
+        if (Input.GetKey("left ctrl"))
+        {
+            _characterController.height = _heightCharacter / 2;
+        }
+        else
+        {
+            _characterController.height = _heightCharacter;
         }
     }
 }
