@@ -6,6 +6,7 @@ public class FlashlightController : MonoBehaviour
     private GameObject _flash;
     private GameObject _ultraviolet;
     private GameObject _battery;
+    private AudioSource _audioSource;
     private Camera _camera;
     private Vector3 _cameraAxes;
     private string _flashSwitch;
@@ -17,6 +18,7 @@ public class FlashlightController : MonoBehaviour
         _flash = _flashlight.transform.GetChild(0).gameObject;
         _ultraviolet = _flashlight.transform.GetChild(1).gameObject;
         _battery = _flashlight.transform.GetChild(2).gameObject;
+        _audioSource = GetComponent<AudioSource>();
         _flashSwitch = "light";
     }
 
@@ -43,9 +45,11 @@ public class FlashlightController : MonoBehaviour
                 {
                     case "light":
                         OnOffLight();
+                        _audioSource.Play();
                         break;
                     case "ultraviolet":
                         OnOffUltraviolet();
+                        _audioSource.Play();
                         break;
                     default:
                         Debug.Log("Error Flash");

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ultraviolet
   - TextUltraviolet
+  - Key
   layers:
   - Default
   - TransparentFX

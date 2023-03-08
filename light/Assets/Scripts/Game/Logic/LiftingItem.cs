@@ -5,8 +5,6 @@ public class LiftingItem : MonoBehaviour
     [SerializeField] private GameObject _liftItem;
     [SerializeField] private GameObject _item;
     [SerializeField] private GameObject _helpUI;
-    [SerializeField] private string _pickUpItem;
-    [SerializeField] private TaskLogic _taskLogic;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +18,6 @@ public class LiftingItem : MonoBehaviour
             Debug.Log("The subject is raised");
             _helpUI.SetActive(false);
             _item.SetActive(true);
-            PickUp();
             Destroy(_liftItem);
         }
     }
@@ -28,18 +25,5 @@ public class LiftingItem : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _helpUI.SetActive(false);
-    }
-
-    private void PickUp()
-    {
-        switch (_pickUpItem)
-        {
-            case "flashlight":
-                _taskLogic.PickUpFlashlight();
-                break;
-            default:
-                Debug.Log("Something's wrong");
-                break;
-        }
     }
 }

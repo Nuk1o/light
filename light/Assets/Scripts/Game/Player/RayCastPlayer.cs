@@ -6,6 +6,8 @@ public class RayCastPlayer : MonoBehaviour
     [SerializeField] private FlashlightController _flashlightController;
     [SerializeField] private GameObject _ultraviolet;
     [SerializeField] private GameObject _palet;
+    [SerializeField] private GameObject _gameObject;
+    [SerializeField] private GameObject _gameObject2;
     private void FixedUpdate()
     {
         RaycastHit hit;
@@ -27,6 +29,18 @@ public class RayCastPlayer : MonoBehaviour
             {
                 hit.collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 _palet.SetActive(false);
+            }
+
+            if (hit.collider.gameObject.tag == "Key"&&_ultraviolet.activeSelf)
+            {
+                _helpUI.SetActive(true);
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Destroy(hit.collider.gameObject);
+                    _helpUI.SetActive(false);
+                }
+                _gameObject.SetActive(false);
+                _gameObject2.SetActive(true);
             }
         }
     }

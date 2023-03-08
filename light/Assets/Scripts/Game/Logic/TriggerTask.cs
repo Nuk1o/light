@@ -32,9 +32,17 @@ public class TriggerTask : MonoBehaviour
         {
             if (!_gameObject1.activeSelf)
             {
-                other.transform.position = new Vector3(-4.27199984f,4.08900023f,-0.079999998f);
+                other.transform.position = new Vector3(-4.00393772f,4.481359f,-0.807759702f);
             }
-        }   
+        }
+        if (_text == "stairs2")
+        {
+            if (!_gameObject1.activeSelf)
+            {
+                other.transform.position = new Vector3(-4.21999979f,1.67200005f,2.68300009f);
+                
+            }
+        }  
     }
 
     private void OnTriggerStay(Collider other)
