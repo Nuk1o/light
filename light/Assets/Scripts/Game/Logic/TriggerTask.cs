@@ -28,6 +28,13 @@ public class TriggerTask : MonoBehaviour
         {
             _uIHelp.SetActive(true);
         }
+        if (_text == "stairs")
+        {
+            if (!_gameObject1.activeSelf)
+            {
+                other.transform.position = new Vector3(-4.27199984f,4.08900023f,-0.079999998f);
+            }
+        }   
     }
 
     private void OnTriggerStay(Collider other)
@@ -43,9 +50,6 @@ public class TriggerTask : MonoBehaviour
                     actionDoorClose();
                     break;
                 case "doorOpen":
-                    break;
-                case "stairs":
-                    actionStairs();
                     break;
                 default:
                     Debug.Log("Trigger error");
@@ -68,14 +72,6 @@ public class TriggerTask : MonoBehaviour
         {
             _uIHelp.SetActive(false);
         }   
-    }
-
-    private void actionStairs()
-    {
-        if (!_gameObject1.activeSelf)
-        {
-            
-        }
     }
     
     private void actionRadio()
