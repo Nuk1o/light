@@ -7659,6 +7659,7 @@ GameObject:
   - component: {fileID: 1149593131}
   - component: {fileID: 1149593130}
   - component: {fileID: 1149593135}
+  - component: {fileID: 1149593138}
   - component: {fileID: 1149593137}
   m_Layer: 0
   m_Name: Player
@@ -7779,6 +7780,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1149593138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149593129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bc4b753e8d5a204ca18a516c070599e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _helpUI: {fileID: 1228557140}
+  _flashlightController: {fileID: 1004030865}
 --- !u!65 &1186548783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9004,7 +9019,7 @@ GameObject:
   - component: {fileID: 1404143288}
   m_Layer: 0
   m_Name: Ultraviolet
-  m_TagString: Untagged
+  m_TagString: Ultraviolet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

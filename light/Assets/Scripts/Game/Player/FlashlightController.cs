@@ -8,6 +8,7 @@ public class FlashlightController : MonoBehaviour
     private GameObject _battery;
     private Camera _camera;
     private Vector3 _cameraAxes;
+    private string _flashSwitch;
     
     private void Start()
     {
@@ -16,6 +17,15 @@ public class FlashlightController : MonoBehaviour
         _flash = _flashlight.transform.GetChild(0).gameObject;
         _ultraviolet = _flashlight.transform.GetChild(1).gameObject;
         _battery = _flashlight.transform.GetChild(2).gameObject;
+        _flashSwitch = "light";
+    }
+
+    public string _fSwitch
+    {
+        set
+        {
+            _flashSwitch = value;
+        }
     }
 
     private void Update()
@@ -27,7 +37,6 @@ public class FlashlightController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            string _flashSwitch = PlayerPrefs.GetString("flash","light");
             if (BatteryIsReady())
             {
                 switch (_flashSwitch)
@@ -59,6 +68,7 @@ public class FlashlightController : MonoBehaviour
 
     private void OnOffLight()
     {
+        _ultraviolet.SetActive(false);
         if (_flash.activeSelf)
         {
             _flash.SetActive(false);
@@ -71,6 +81,7 @@ public class FlashlightController : MonoBehaviour
     
     private void OnOffUltraviolet()
     {
+        _flash.SetActive(false);
         if (_ultraviolet.activeSelf)
         {
             _ultraviolet.SetActive(false);

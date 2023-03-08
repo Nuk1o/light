@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TriggerTask : MonoBehaviour
@@ -43,6 +45,7 @@ public class TriggerTask : MonoBehaviour
                 case "doorOpen":
                     break;
                 case "stairs":
+                    actionStairs();
                     break;
                 default:
                     Debug.Log("Trigger error");
@@ -65,6 +68,14 @@ public class TriggerTask : MonoBehaviour
         {
             _uIHelp.SetActive(false);
         }   
+    }
+
+    private void actionStairs()
+    {
+        if (!_gameObject1.activeSelf)
+        {
+            
+        }
     }
     
     private void actionRadio()
@@ -105,7 +116,5 @@ public class TriggerTask : MonoBehaviour
         yield return new WaitForSeconds(2);
         _go.SetActive(false);
     }
-    
 }
-
 
